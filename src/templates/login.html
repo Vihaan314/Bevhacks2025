@@ -1,0 +1,40 @@
+{% extends "base.html" %}{% block title %}Login{% endblock %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+
+<form method="POST">
+	<h1 align = "center" style="color: #00ff6a;" data-value="Hello">Hello</h1>
+    <h3 align="center" style="color: #00ff6a;">Login</h3>
+    <h4 style="color: #00ff6a;"><strong>Login with username</strong></h4>
+    <div class="form-group has-icon fa-user">
+        <label class="movable" for="firstName">Username</label>
+        <input type="text" class="form-control form-field" id="firstName" name="firstName" />
+    </div>
+    <div class="form-group has-icon fa-lock">
+        <label class="movable" for="password">Password</label>
+        <input type="password" class="form-control form-field" id="password" name="password" />
+    </div>
+    <div class="form-group">
+		<button class="btn" type="submit"><a>Login</a></button>
+	</div>
+    <br>
+    <p class="sign" style="color: rgba(87, 254, 99, 0.8);">Don't have an account? <a href="/sign-up" style="color: rgba(87, 254, 99, 0.8);">Sign-up</a>.</p>
+</form>
+
+<script type="text/javascript" src="{{ url_for('static', filename='sign.js') }}"></script>
+<script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+
+
+{% endblock %}

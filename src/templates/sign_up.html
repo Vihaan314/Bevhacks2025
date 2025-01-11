@@ -1,0 +1,64 @@
+{% extends "base.html" %}{% block title %}Sign Up{% endblock %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+  
+<form method="POST" id="signup">
+	<h1 align = "center" style="color: #00ff6a;" data-value="Hello">Hello</h1>
+    <h3 align= "center" style="color: #00ff6a;">Sign up</h3>
+	
+	<div class="form-group has-icon fa-regular fa-envelope">
+		<label class="movable" for="email">Email address</label>
+		<input type="email" name="email" id="email" class="form-control form-field required email" />
+	</div>
+	<div class="form-group has-icon fa-user">
+		<label class="movable" for="firstName">Username</label>
+		<input type="text" name="firstName" id="firstName" class="form-control form-field required" />
+	</div>
+    <div class="form-group has-icon fa-lock">
+        <label class="movable" for="password1">Password</label>
+        <input type="password" class="form-control form-field required" id="password1" name="password1"/>
+    </div>
+    <div class="form-group has-icon fa-key">
+        <label class="movable" for="password2">Password (Confirm)</label>
+        <input type="password" class="form-control form-field required" id="password2" name="password2"/>
+    </div>
+	 <div class="form-group" id="accountcreate">
+		
+			<a class="create">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<p>Create account</p>
+			</a>
+	
+	 </div>
+	 
+    <p class="login" style="color: rgba(87, 254, 99, 0.8);">Already have an account? <a style="color: rgba(87, 254, 99, 0.8);" href="/login">Login</a>.</p>
+
+</form>
+
+
+<script type="text/javascript">
+	document.getElementById("accountcreate").onclick = function() {
+		document.getElementById("signup").submit();
+	}
+
+</script>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='sign.js') }}"></script>
+<script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+	
+{% endblock %}
