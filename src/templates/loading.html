@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='loading.css') }}">
+</head>
+<body>
+  <div class="loader"></div>
+  <script>
+    const loc = `{{ location }}`;
+
+    fetch(`/createWildfireStats/${encodeURIComponent(loc)}`)
+      .then(response => {
+        if (response.redirected) {
+          window.location.href = response.url;
+        }
+      })
+      .catch(error => console.error('Error fetching wildfire stats:', error));
+  </script>
+</body>
+</html>

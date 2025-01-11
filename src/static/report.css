@@ -1,0 +1,19 @@
+body {
+    background-image: url("https://wallpapers.com/images/hd/chill-4k-foggy-dark-pine-trees-9qadbl855zzmeahr.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
+form {
+    display: inline-block;
+}
+
+

@@ -8,15 +8,6 @@ import uuid
 db = SQLAlchemy()
 DB_NAME = "database.db"
     
-#Message functionality (not implemented only if needed)
-def saveMessage(msg):
-    from .models import Message
-    message = Message(data=msg, encryption=5)
-    print(message)
-    
-    db.session.add(message)
-    db.session.commit()
-
 def create_app():
     from .views import views
 

@@ -1,5 +1,6 @@
 .dropdown-submenu {
     position: relative;
+    overflow: hidden;
   }
   
 .dropdown-submenu > .dropdown-menu {
@@ -15,4 +16,10 @@
   text-decoration: none;
   color: #008000;
   margin-left: 30px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }

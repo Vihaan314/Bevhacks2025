@@ -1,0 +1,186 @@
+{% extends "base.html" %}{% block title %}FireWatch{% endblock %}
+{% block content %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='wildfire.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+
+
+<!-- Main website code-->
+
+<div class="main">
+  <div class="title">
+    <h1>Wildfire info: {{location}}</h1>
+  </div>
+  <div id="content">
+    <div id="news">
+        <h1 style="font-size: 40px;">NEWS</h1>
+        <div id="nt">
+
+        </div>
+    </div>
+
+    <div id="alerts">
+        <h1 style="font-size: 40px;">ALERTS</h1>
+        <div id="at">
+                    
+        </div>
+    </div>
+    
+    <div id="weather">
+        <h1 style="font-size: 40px;">WEATHER</h1>
+        <div id="wt">
+            
+        </div>
+    </div>
+
+    <div id="verdict">
+        <h1 style="font-size: 40px;">VERDICT</h1>
+        <div id="vt">
+            
+        </div>
+    </div>
+
+    </div>
+</div>
+
+<!-- <div class="main">
+    <div class="title">
+      <h1>Wildfire info: Pacific Palisades</h1>
+    </div>
+    <div id="content">
+      <div id="news">
+          <h1 style="font-size: 40px;">NEWS</h1>
+          <div id="nt"><h2>Wildfire Update for Pacific Palisades</h2>
+  <h3>Current Situation</h3>
+  <ul>
+  <li>Significant wildland fire activity is occurring in Southern California, with a noted increase in potential for new significant wildfires.</li>
+  <li>Specific fires of interest include:
+  <ul>
+  <li><strong>Palisades Fire</strong>:
+  <ul>
+  <li>Location: Four miles west of Brentwood, CA (near Pacific Palisades)</li>
+  <li>Acres burned: 19,978</li>
+  <li>Containment status: 6%</li>
+  </ul>
+  </li>
+  </ul>
+  </li>
+  </ul>
+  <h3>Other Nearby Fires</h3>
+  <ul>
+  <li>
+  <p><strong>Eaton Fire</strong>:</p>
+  <ul>
+  <li>Location: Eaton Canyon near Pasadena, CA</li>
+  <li>Acres burned: 13,690</li>
+  <li>Containment status: 0%</li>
+  </ul>
+  </li>
+  <li>
+  <p><strong>Kenneth Fire</strong>:</p>
+  <ul>
+  <li>Location: Three miles west of Woodland Hills, CA</li>
+  <li>Acres burned: 1,000</li>
+  <li>Containment status: 35%</li>
+  </ul>
+  </li>
+  </ul>
+  <h3>Weather Conditions</h3>
+  <ul>
+  <li>Santa Ana winds gusting up to 60 mph may exacerbate fire conditions, with low humidity levels (5-15%).</li>
+  <li>Dry conditions will continue, indicating a heightened risk for fire spread.</li>
+  </ul>
+  <h3>Safety Recommendations</h3>
+  <ul>
+  <li>Residents in the area should stay informed about evacuation notices from local authorities.</li>
+  <li>It is advised to have emergency plans in place in light of the current wildfire threats.</li>
+  </ul>
+  <h3>Additional Resources</h3>
+  <ul>
+  <li>For more detailed updates, visit the InciWeb and CALFIRE websites for current fire information.</li>
+  </ul>
+  </div>
+      </div>
+  
+      <div id="alerts">
+          <h1 style="font-size: 40px;">ALERTS</h1>
+          <div id="at"><h3>Alerts for Pacific Palisades</h3>
+  <h4>High Wind Warning</h4>
+  <p><strong>Headline:</strong> High Wind Warning issued January 11 at 1:55AM PST until January 12 at 2:00PM PST by NWS Los Angeles/Oxnard CA<br>
+  <strong>Onset:</strong> January 11, 2025 at 6:00 PM PST<br>
+  <strong>Ends:</strong> January 12, 2025 at 2:00 PM PST<br>
+  <strong>Description:</strong></p>
+  <ul>
+  <li>WHAT...For the Wind Advisory, northeast winds 15 to 30 mph with gusts up to 45 mph expected. For the High Wind Warning, northeast winds 25 to 40 mph with gusts up to 65 mph expected.</li>
+  <li>WHERE...Santa Susana Mountains.</li>
+  <li>WHEN...For the Wind Advisory, until 6 PM PST this evening. For the High Wind Warning, from 6 PM this evening to 2 PM PST Sunday.</li>
+  <li>IMPACTS...Damaging winds could blow down trees and power lines. Widespread power outages are possible. Travel will be difficult, especially for high profile vehicles. Gusty winds will blow around unsecured objects. Tree limbs could be blown down and a few power outages may result.</li>
+  </ul>
+  </div>
+      </div>
+      
+      <div id="weather">
+          <h1 style="font-size: 40px;">WEATHER</h1>
+          <div id="wt"><h1>Weather Statistics for Pacific Palisades</h1>
+  <p><strong>Date:</strong> January 11, 2025</p>
+  <ul>
+  <li><strong>Max Temperature:</strong> 63.1°F</li>
+  <li><strong>Min Temperature:</strong> 46.1°F</li>
+  <li><strong>Average Temperature:</strong> 56.8°F</li>
+  <li><strong>Conditions:</strong> Clear</li>
+  <li><strong>Humidity:</strong> 49.8%</li>
+  <li><strong>Dew Point:</strong> 35.3°F</li>
+  <li><strong>Precipitation:</strong> 0.0 inches</li>
+  <li><strong>Wind Speed:</strong> 11.4 mph</li>
+  <li><strong>Wind Gust:</strong> 27.7 mph</li>
+  <li><strong>Pressure:</strong> 1017.4 hPa</li>
+  <li><strong>Cloud Cover:</strong> 14.5%</li>
+  <li><strong>Visibility:</strong> 10.0 miles</li>
+  <li><strong>UV Index:</strong> 6.0</li>
+  <li><strong>Severe Risk:</strong> 10.0</li>
+  <li><strong>Sunrise:</strong> 07:00:13 AM</li>
+  <li><strong>Sunset:</strong> 05:04:37 PM</li>
+  </ul>
+  </div>
+      </div>
+  
+      <div id="verdict">
+          <h1 style="font-size: 40px;">VERDICT</h1>
+          <div id="vt"><h2>Final Verdict for Pacific Palisades Wildfire Assessment</h2>
+  <p>Based on the national fire news, alerts, and current weather statistics, there is no indication of an active wildfire occurring in Pacific Palisades at this time. Conditions appear stable and no immediate threats have been reported.</p>
+  </div>
+      </div>
+  
+      </div>
+  </div> -->
+    <!-- const markdownText = `**Probability of Fire Occurring in Pacific Palisades, CA:** Given the current weather conditions and alerts, the probability of a wildfire occurring in the Pacific Palisades area is notably **high**.\ This assessment is based on: - **Fire Weather Watch**: A Fire Weather Watch has been issued, indicating the potential for critical fire weather conditions. This includes wind gusts reaching up to 65 mph combined with very low relative humidity (as low as 10-20%). - **Current Weather Conditions**: The area is experiencing clear weather, which fosters an environment conducive to wildfires. - **Dry Conditions**: There have been no recent rains, contributing to dry vegetation that can easily ignite. **Steps to Take to Protect Yourself:** 1. **Stay Informed**: Regularly check local news and weather updates for any changes in fire weather alerts or evacuation orders. 2. **Create a Safety Plan**: Ensure you have an evacuation plan in place, including routes and a designated meeting place for family members. 3. **Prepare an Emergency Kit**: Assemble an emergency kit with essentials such as water, food, medications, important documents, flashlight, and first-aid supplies. 4. **Remove Flammable Materials**: Clear your yard of dry leaves, debris, and other flammable materials. Create defensible space around your home. 5. **Create an Emergency Contact List**: Make sure you have a list of emergency contacts, including local authorities and firefighters. **What Is Happening to Prevent Fires in the Area:** - **Resource Mobilization**: Local and federal firefighting resources, including aircraft equipped with firefighting systems, are prepared and mobilized for rapid response. - **Public Awareness Campaigns**: Local authorities are likely conducting public awareness campaigns on fire safety and prevention measures. - **State Assistance**: California state agencies are ready to assist with fire response efforts, ensuring equipped teams are on alert. Due to the current high-risk conditions, it is imperative to remain vigilant and proactive in fire safety efforts.` -->
+
+<script>
+    //Markdown text from the API
+    const newsText = `{{ newsSummary }}`;
+    const md1 = window.markdownit();
+    const htmlContent1 = md1.render(newsText);
+    document.getElementById('nt').innerHTML = htmlContent1;
+
+    const alertsText = `{{ alertsFormatted }}`;
+    const htmlContent2 = md1.render(alertsText);
+    document.getElementById('at').innerHTML = htmlContent2;
+
+    const weatherText = `{{ weatherStats }}`;
+    const htmlContent3 = md1.render(weatherText);
+    document.getElementById('wt').innerHTML = htmlContent3;
+
+    const verdictText = `{{ wildfireVerdict }}`;
+    const htmlContent4 = md1.render(verdictText);
+    document.getElementById('vt').innerHTML = htmlContent4;
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script> 
+
+{% endblock %}

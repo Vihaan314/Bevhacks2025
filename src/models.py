@@ -2,6 +2,9 @@ from src import db
 from sqlalchemy.sql import func
 
 class Message(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(10000))
+    latitude = db.Column(db.Numeric(precision = 17, scale = 14), nullable = False)
+    longitude = db.Column(db.Numeric(precision = 17, scale = 14), nullable = False)
+
+    description = db.Column(db.String())
+
     date = db.Column(db.DateTime(timezone=True), default=func.now())

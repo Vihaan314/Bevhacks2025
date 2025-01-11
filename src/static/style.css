@@ -1,4 +1,55 @@
 body {
-    font-family: "Courier New", Courier, monospace;
-      background-color: #ffffff;
+      background-image: url("https://wallpapers.com/images/hd/chill-4k-foggy-dark-pine-trees-9qadbl855zzmeahr.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Trebuchet MS', sans-serif;
+    
   }
+
+
+.title {
+  text-align: center;
+  font-size: 100px;
+  font-weight: bolder;
+}
+
+input[type=text], select {
+  border-radius: 12px;
+  width: 100%;
+  padding: 14px 20px;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  display: inline-block;
+  border: none;
+  box-sizing: border-box;
+}
+
+
+div {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.button {
+  display: inline-block;
+  font-weight: bold;
+  width: 100%;
+  background-color: #E10600;
+  color: white;
+  padding: 14px 20px;
+  margin: 25px 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+  transition: all 0.5s;
+}
+
+.button:hover {
+  box-shadow: 0 20px 24px 0 rgba(0,0,0,1), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
+

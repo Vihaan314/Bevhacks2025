@@ -1,0 +1,116 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.main {
+    margin-top: 55%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.title h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #2a4d69;
+    margin-bottom: 20px;
+}
+
+/* Content Layout */
+#content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+    #content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Section Styling */
+#content > div {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+/* Section Headers */
+#content > div h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #2a4d69;
+    margin-bottom: 20px;
+}
+
+/* News Section */
+#news {
+    background-color: #ffefe6;
+    border: 1px solid #ffb3a7;
+}
+
+/* Alerts Section */
+#alerts {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+/* Weather Section */
+#weather {
+    background-color: #d9edf7;
+    border: 1px solid #bce8f1;
+}
+
+/* Verdict Section */
+#verdict {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+/* Nested Lists */
+ul {
+    margin: 10px 0 10px 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+/* Strong Text Highlight */
+strong {
+    color: #0056b3;
+}
+
+/* Ensure All Content Fits the Page */
+html, body {
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+/* Add Spacing */
+p, h3, h4 {
+    margin-bottom: 10px;
+}
+
+/* Add Padding to Prevent Overlap */
+body {
+    padding: 20px;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='report.css') }}">
+    <style>
+        
+        #map {
+            height: 50%;
+            width: 50%;
+            align-items: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <a href="\">
+        <button class = 'button'>Go Back</button>
+    </a>
+    <div class="title">
+        <h1>REPORT A WILDFIRE IN YOUR AREA</h1>
+        <br>
+        <h3>Move The Marker To Your Location On The Map</h3>
+    </div>
+    
+
+    <div id="map"></div>
+
+    
+
+    <script>
+        function initMap() {
+            const mapElement = document.getElementById('map');
+            const initialLat = 39.5; 
+            const initialLng = -96.35; 
+
+            const map = new google.maps.Map(mapElement, {
+                center: { lat: initialLat, lng: initialLng },
+                zoom: 3.7,
+            });
+
+            const customIcon = {
+                url: "https://static.vecteezy.com/system/resources/thumbnails/018/888/343/small_2x/yellow-fire-icon-png.png",  
+                scaledSize: new google.maps.Size(40, 40),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(20, 40),
+            };
+
+            
+            var reports = JSON.parse(`{{ reports | tojson | safe }}`);
+
+           
+            reports.forEach(function(report) {
+                
+                var lat = parseFloat(report.latitude);
+                var lng = parseFloat(report.longitude);
+                var desc = report.desc;
+
+                if (!isNaN(lat) && !isNaN(lng)) {
+                    m = new google.maps.Marker({
+                        map: map,
+                        draggable: false,
+                        position: { lat: lat, lng: lng },
+                        icon: customIcon,
+                        title: desc
+                        
+                    });
+
+                } else {
+                    console.error("Invalid latitude or longitude for report", report);
+                }
+            });
+
+           
+            const marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                position: { lat: initialLat, lng: initialLng },
+            });
+
+        
+            google.maps.event.addListener(marker, 'dragend', function () {
+                const lat = marker.getPosition().lat();
+                const lng = marker.getPosition().lng();
+                document.getElementById('latitude').value = lat;
+                document.getElementById('longitude').value = lng;
+                console.log('Latitude:', lat, 'Longitude:', lng);
+            });
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0ufYEJhBiYo9BCZi8yIeR-QO26mOSf5U&callback=initMap&libraries=places" async defer></script>
+
+    <div class="main">
+        <div>
+            <form id="location" action="/report" method="POST">
+                <input type="text" id="latitude" name="lat" placeholder="Latitude">
+                <input type="text" id="longitude" name="long" placeholder="Longitude">
+                <br>
+                <input type="text" id="description" name="desc" placeholder="Enter a description" style="height: 150px; width: 600px;">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
