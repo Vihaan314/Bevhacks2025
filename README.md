@@ -1,6 +1,6 @@
 # FireWatch
 
-## <b>Result<b>
+## <b>Result</b>
 Won <b>Best Overall</b> in the [Bevhacks](https://bevhacks-2025.devpost.com/ 'Bevhacks').
 
 
